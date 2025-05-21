@@ -29,7 +29,7 @@
                 <div class="img-full-box" style="background-image: url(./asset/image/login_page.jpg)">
                     <div class="center-title-text">
                         <div class="bottom-blur-inner">
-                            <h1 class="main-title font-70 gil-heavy">cut.fx</h1>
+                            <h1 class="main-title font-70 gil-heavy">Halake</h1>
                             <div class="width-c-50">
                                 <p class="m-0 font-20 text-contant  gil-reg">All of the details you have submitted
                                     has been received by us.
