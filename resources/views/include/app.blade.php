@@ -106,11 +106,11 @@
                                     class="fas  fa-calendar-check"></i><span>
                                     {{ __('Bookings') }} </span></a>
                         </li>
-                        <!-- <li class="sideBarli  reviewsSideA">
+                        <li class="sideBarli  reviewsSideA">
                             <a href="{{ route('reviews') }}" class="nav-link"><i class="fas fa-star"></i><span>
                                     {{ __('Reviews') }} </span></a>
-                        </li> -->
-                        <!-- <li class="sideBarli  couponsSideA">
+                        </li>
+                        <li class="sideBarli  couponsSideA">
                             <a href="{{ route('coupons') }}" class="nav-link"><i class="fas fa-tag"></i><span>
                                     {{ __('Coupons') }} </span></a>
                         </li>
@@ -121,14 +121,14 @@
                         <li class="sideBarli  faqsSideA">
                             <a href="{{ route('faqs') }}" class="nav-link"><i class="fas fa-question-circle"></i><span>
                                     {{ __('FAQs') }} </span></a>
-                        </li> -->
-                        <!-- <li class="sideBarli  notificationsSideA">
+                        </li>
+                        <li class="sideBarli  notificationsSideA">
                             <a href="{{ route('notifications') }}" class="nav-link"><i class="fa fa-bell"></i><span>
                                     {{ __('Notifications') }} </span></a>
-                        </li> -->
+                        </li>
                         <li class="menu-header">{{ __('Business') }}</li>
 
-                        <!-- <li class="sideBarli  userWithdrawsSideA">
+                        <li class="sideBarli  userWithdrawsSideA">
                             <a href="{{ route('userWithdraws') }}" class="nav-link"><i
                                     class="fas fa-money-bill"></i><span>
                                     {{ __('User Withdraws') }} </span></a>
@@ -151,7 +151,7 @@
                                     class="fas fa-wallet"></i><span>
 
                                     {{ __('Recharge Logs (User)') }} </span></a>
-                        </li> -->
+                        </li>
 
                         <li class="menu-header">{{ __('Other Data') }}</li>
 
