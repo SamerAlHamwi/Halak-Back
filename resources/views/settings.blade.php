@@ -139,39 +139,15 @@
 
                     @csrf
                     <div class="">
-                        <span>- The platform supports one payment gateway only at a time. So users can recharge the wallet
-                            with
-                            the selected gateway only.</span><br>
-                        <span>- Make sure to add the <strong>Currency Code</strong> from the list of supported currencies by
-                            the
-                            payment gateways. Links are provided below each of them.</span><br>
-                        <span>- Make sure that the <strong>Currency Symbol</strong> matches with the selected
-                            <strong>Currency
-                                Code</strong> to avoid confusions to user.</span><br>
-                        <span>- Select the one gateway to use and then save it. Make sure to set required credentials for
-                            that
-                            gateways.</span>
+                        <span>- The platform uses Stripe as the payment gateway for wallet recharges.</span><br>
+                        <span>- Ensure the <strong>Currency Code</strong> is supported by Stripe. See supported currencies: <a href="https://stripe.com/docs/currencies" target="_blank">https://stripe.com/docs/currencies</a></span><br>
+                        <span>- Ensure the <strong>Currency Symbol</strong> matches the selected <strong>Currency Code</strong> to avoid user confusion.</span><br>
                     </div>
                     <div class="form-row mt-3">
                         <div class="form-group col-md-4">
-                            <label for="exampleFormControlSelect1">{{ __('Payment Gateway') }}</label>
-
-                            <select name="payment_gateway" class="form-control">
-                                <option {{ $data->payment_gateway == 1 ? 'selected' : '' }} value="1">
-                                    {{ __('Stripe') }}
-                                </option>
-                                <option {{ $data->payment_gateway == 3 ? 'selected' : '' }} value="3">
-                                    {{ __('Razorpay') }}</option>
-                                <option {{ $data->payment_gateway == 4 ? 'selected' : '' }} value="4">
-                                    {{ __('Paystack') }}</option>
-                                <option {{ $data->payment_gateway == 5 ? 'selected' : '' }} value="5">
-                                    {{ __('PayPal') }}
-                                </option>
-                                <option class="" {{ $data->payment_gateway == 6 ? 'selected' : '' }} value="6">
-                                    {{ __('Flutterwave') }}</option>
-                                    <option {{ $data->payment_gateway == 7 ? 'selected' : '' }} value="7">
-                                        {{ __('SSLCommerze') }}</option>
-                            </select>
+                            <label for="">{{ __('Payment Gateway') }}</label>
+                            <input type="hidden" name="payment_gateway" value="1">
+                            <input type="text" class="form-control" value="{{ __('Stripe') }}" readonly>
                         </div>
                     </div>
 
@@ -196,129 +172,6 @@
                             <input value="{{ $data->stripe_currency_code }}" type="text" class="form-control"
                                 name="stripe_currency_code">
                         </div>
-                    </div>
-                    {{-- Razorpay --}}
-                    <h5 class="text-dark d-block mt-2">{{ __('Razorpay') }}</h5>
-                    <p class="text-muted">{{ __('Supported Currencies :') }} <a
-                            href="https://knowledgebase.razorpay.com/support/solutions/articles/82000533827-what-currencies-does-razorpay-support-"
-                            target="_blank">https://knowledgebase.razorpay.com/support/solutions/articles/82000533827-what-currencies-does-razorpay-support-</a>
-                    </p>
-                    <div class="form-row payment-gateway-card p-2">
-                        <div class="form-group col-md-4">
-                            <label for="">{{ __('Razorpay Key') }}</label>
-                            <input value="{{ $data->razorpay_key }}" type="text" class="form-control"
-                                name="razorpay_key">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="">{{ __('Currency Code (***)') }}</label>
-                            <input value="{{ $data->razorpay_currency_code }}" type="text" class="form-control"
-                                name="razorpay_currency_code">
-                        </div>
-                    </div>
-
-                    {{-- Paystack --}}
-                    <h5 class="text-dark d-block mt-2">{{ __('Paystack') }}</h5>
-                    <p class="text-muted">{{ __('Supported Currencies :') }} <a
-                            href="https://support.paystack.com/hc/en-us/articles/360009973779-What-currency-is-available-to-my-business-"
-                            target="_blank">https://support.paystack.com/hc/en-us/articles/360009973779-What-currency-is-available-to-my-business-</a>
-                    </p>
-
-                    <div class="form-row payment-gateway-card p-2">
-                        <div class="form-group col-md-4">
-                            <label for="">{{ __('Public Key') }}</label>
-                            <input value="{{ $data->paystack_public_key }}" type="text" class="form-control"
-                                name="paystack_public_key">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="">{{ __('Secret Key') }}</label>
-                            <input value="{{ $data->paystack_secret_key }}" type="text" class="form-control"
-                                name="paystack_secret_key">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="">{{ __('Currency Code (***)') }}</label>
-                            <input value="{{ $data->paystack_currency_code }}" type="text" class="form-control"
-                                name="paystack_currency_code">
-                        </div>
-                    </div>
-                    {{-- Paypal --}}
-                    <h5 class="text-dark d-block mt-2">{{ __('PayPal') }}</h5>
-                    <p class="text-muted">{{ __('Supported Currencies :') }} <a
-                            href="https://developer.paypal.com/docs/reports/reference/paypal-supported-currencies/"
-                            target="_blank">https://developer.paypal.com/docs/reports/reference/paypal-supported-currencies/</a>
-                    </p>
-
-                    <div class="form-row payment-gateway-card p-2">
-                        <div class="form-group col-md-4">
-                            <label for="">{{ __('Client Id') }}</label>
-                            <input value="{{ $data->paypal_client_id }}" type="text" class="form-control"
-                                name="paypal_client_id">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="">{{ __('Secret Key') }}</label>
-                            <input value="{{ $data->paypal_secret_key }}" type="text" class="form-control"
-                                name="paypal_secret_key">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="">{{ __('Currency Code (***)') }}</label>
-                            <input value="{{ $data->paypal_currency_code }}" type="text" class="form-control"
-                                name="paypal_currency_code">
-                        </div>
-                    </div>
-                    {{-- Flutterwave --}}
-                    <div class="">
-                        <h5 class="text-dark d-block mt-2 ">{{ __('Flutterwave') }}</h5>
-                        <p class="text-muted">{{ __('Supported Currencies :') }} <a
-                            href="https://flutterwave.com/tz/support/general/what-are-the-currencies-accepted-on-flutterwave"
-                            target="_blank">https://flutterwave.com/tz/support/general/what-are-the-currencies-accepted-on-flutterwave</a>
-                        </p>
-                    </div>
-                    <div class="form-row payment-gateway-card p-2">
-                        <div class="form-group col-md-3">
-                            <label for="">{{ __('Public Key') }}</label>
-                            <input value="{{ $data->flutterwave_public_key }}" type="text" class="form-control"
-                                name="flutterwave_public_key">
-                        </div>
-
-                        <div class="form-group col-md-3">
-                            <label for="">{{ __('Secret Key') }}</label>
-                            <input value="{{ $data->flutterwave_secret_key }}" type="text" class="form-control"
-                                name="flutterwave_secret_key">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="">{{ __('Encryption Key') }}</label>
-                            <input value="{{ $data->flutterwave_encryption_key }}" type="text" class="form-control"
-                                name="flutterwave_encryption_key">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="">{{ __('Currency Code (***)') }}</label>
-                            <input value="{{ $data->flutterwave_currency_code }}" type="text" class="form-control"
-                                name="flutterwave_currency_code">
-                        </div>
-
-                    </div>
-
-                    {{-- SSL Commerze --}}
-                    <h5 class="text-dark d-block mt-2">{{ __('SSLCommerze') }}</h5>
-                    <p class="text-muted">{{ __('Supported Currencies :') }} USD,BDT Only
-                    </p>
-                    <div class="form-row payment-gateway-card p-2">
-                        <div class="form-group col-md-3">
-                            <label for="">{{ __('Store Id') }}</label>
-                            <input value="{{ $data->sslcommerz_store_id }}" type="text" class="form-control"
-                                name="sslcommerz_store_id">
-                        </div>
-
-                        <div class="form-group col-md-3">
-                            <label for="">{{ __('Store Password') }}</label>
-                            <input value="{{ $data->sslcommerz_store_passwd }}" type="text" class="form-control"
-                                name="sslcommerz_store_passwd">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="">{{ __('Currency Code (***)') }} USD & BDT only</label>
-                            <input value="{{ $data->sslcommerz_currency_code }}" type="text" class="form-control"
-                                name="sslcommerz_currency_code">
-                        </div>
-
                     </div>
 
                     <div class="form-group-submit mt-3">

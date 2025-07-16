@@ -234,26 +234,7 @@ class SettingsController extends Controller
         $settings->stripe_publishable_key = $request->stripe_publishable_key;
         $settings->stripe_currency_code = $request->stripe_currency_code;
 
-        $settings->razorpay_key = $request->razorpay_key;
-        $settings->razorpay_currency_code = $request->razorpay_currency_code;
-
-        $settings->paystack_secret_key = $request->paystack_secret_key;
-        $settings->paystack_public_key = $request->paystack_public_key;
-        $settings->paystack_currency_code = $request->paystack_currency_code;
-
-        $settings->paypal_client_id = $request->paypal_client_id;
-        $settings->paypal_secret_key = $request->paypal_secret_key;
-        $settings->paypal_currency_code = $request->paypal_currency_code;
-
-        $settings->flutterwave_public_key = $request->flutterwave_public_key;
-        $settings->flutterwave_encryption_key = $request->flutterwave_encryption_key;
-        $settings->flutterwave_secret_key = $request->flutterwave_secret_key;
-        $settings->flutterwave_currency_code = $request->flutterwave_currency_code;
-
-        $settings->sslcommerz_store_id = $request->sslcommerz_store_id;
-        $settings->sslcommerz_store_passwd = $request->sslcommerz_store_passwd;
-        $settings->sslcommerz_currency_code = $request->sslcommerz_currency_code;
-
+       
         $settings->save();
 
         return GlobalFunction::sendSimpleResponse(true, 'value changed successfully');

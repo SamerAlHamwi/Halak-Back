@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     $("#couponsTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",
@@ -62,7 +62,7 @@ $(document).ready(function () {
             });
         }
     });
-    
+
     $("#editCouponForm").on("submit", function (event) {
         event.preventDefault();
         $(".loader").show();

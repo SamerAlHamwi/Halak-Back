@@ -70,12 +70,6 @@ final class Constants
 
     // Payment Gateways
     const stripe = 1;
-    const addedByAdmin = 2;
-    const razorPay = 3;
-    const payStack = 4;
-    const payPal = 5;
-    const flutterWave = 6;
-    const sslCommerze = 7;
 
 
     // Withdrawals Status

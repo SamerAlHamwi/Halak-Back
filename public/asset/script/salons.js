@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     $("#pendingSalonTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",
@@ -25,7 +25,7 @@ $(document).ready(function () {
     });
     $("#bannedSalonTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",
@@ -46,7 +46,7 @@ $(document).ready(function () {
     });
     $("#activeSalonTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",
@@ -90,7 +90,7 @@ $(document).ready(function () {
     });
     $("#signUpOnlySalonTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",

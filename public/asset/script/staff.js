@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     $("#staffTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",

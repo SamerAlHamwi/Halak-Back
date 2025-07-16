@@ -176,76 +176,6 @@
                     </div>
                 </div>
             </div>
-            {{-- Last 90 days Bookings --}}
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="card-statistic-4">
-                        <div class="align-items-center justify-content-between">
-                            <div class="row ">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div>
-                                        <h4 class="font-18 mt-1 text-theme-color">{{ __('Last 90 Days') }}</h4>
-                                        <div class="records-tab-div">
-                                            <p class="text-grey">
-                                                {{ __('Total : ') }}<strong>{{ $last90daysTotalBookings }}</strong></p>
-                                            <p class="text-grey">
-                                                {{ __('Pending : ') }}<strong>{{ $last90daysTotalPendingBookings }}</strong>
-                                            </p>
-                                            <p class="text-grey">
-                                                {{ __('Accepted : ') }}<strong>{{ $last90daysTotalAcceptedBookings }}</strong>
-                                            </p>
-                                            <p class="text-grey">
-                                                {{ __('Completed : ') }}<strong>{{ $last90daysTotalCompletedBookings }}</strong>
-                                            </p>
-                                            <p class="text-grey">
-                                                {{ __('Cancelled : ') }}<strong>{{ $last90daysTotalCancelledBookings }}</strong>
-                                            </p>
-                                            <p class="text-grey">
-                                                {{ __('Declined : ') }}<strong>{{ $last90daysTotalDeclinedBookings }}</strong>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- last 180 days Bookings --}}
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="card-statistic-4">
-                        <div class="align-items-center justify-content-between">
-                            <div class="row ">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div>
-                                        <h4 class="font-18 mt-1 text-theme-color">{{ __('Last 180 Days') }}</h4>
-                                        <div class="records-tab-div">
-                                            <p class="text-grey">
-                                                {{ __('Total : ') }}<strong>{{ $last180daysTotalBookings }}</strong></p>
-                                            <p class="text-grey">
-                                                {{ __('Pending : ') }}<strong>{{ $last180daysTotalPendingBookings }}</strong>
-                                            </p>
-                                            <p class="text-grey">
-                                                {{ __('Accepted : ') }}<strong>{{ $last180daysTotalAcceptedBookings }}</strong>
-                                            </p>
-                                            <p class="text-grey">
-                                                {{ __('Completed : ') }}<strong>{{ $last180daysTotalCompletedBookings }}</strong>
-                                            </p>
-                                            <p class="text-grey">
-                                                {{ __('Cancelled : ') }}<strong>{{ $last180daysTotalCancelledBookings }}</strong>
-                                            </p>
-                                            <p class="text-grey">
-                                                {{ __('Declined : ') }}<strong>{{ $last180daysTotalDeclinedBookings }}</strong>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             {{-- All time Bookings --}}
             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
                 <div class="card">
@@ -425,42 +355,6 @@
                     </div>
                 </div>
             </div>
-            {{-- Last 90 days Earnings --}}
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="card-statistic-4">
-                        <div class="align-items-center justify-content-between">
-                            <div class="row ">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 ">
-                                    <div>
-                                        <h4 class="mb-2 ">{{ $settings->currency }}{{ $last90DaysEarnings }}</h4>
-                                        <h5 class="font-15 mt-1 text-grey">{{ __('Last 90 Days') }}</h5>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- Last 180 days Earnings --}}
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="card-statistic-4">
-                        <div class="align-items-center justify-content-between">
-                            <div class="row ">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 ">
-                                    <div>
-                                        <h4 class="mb-2 ">{{ $settings->currency }}{{ $last180DaysEarnings }}</h4>
-                                        <h5 class="font-15 mt-1 text-grey">{{ __('Last 180 Days') }}</h5>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             {{-- All time Earnings --}}
             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
                 <div class="card">
@@ -593,42 +487,6 @@
                                     <div>
                                         <h4 class="mb-2 ">{{ $settings->currency }}{{ $last30DaysRecharges }}</h4>
                                         <h5 class="font-15 mt-1 text-grey">{{ __('Last 30 Days') }}</h5>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- Last 90 days Reacharges --}}
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="card-statistic-4">
-                        <div class="align-items-center justify-content-between">
-                            <div class="row ">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 ">
-                                    <div>
-                                        <h4 class="mb-2 ">{{ $settings->currency }}{{ $last90DaysRecharges }}</h4>
-                                        <h5 class="font-15 mt-1 text-grey">{{ __('Last 90 Days') }}</h5>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- Last 180 days Reacharges --}}
-            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="card-statistic-4">
-                        <div class="align-items-center justify-content-between">
-                            <div class="row ">
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pr-0 ">
-                                    <div>
-                                        <h4 class="mb-2 ">{{ $settings->currency }}{{ $last180DaysRecharges }}</h4>
-                                        <h5 class="font-15 mt-1 text-grey">{{ __('Last 180 Days') }}</h5>
                                     </div>
                                 </div>
 

@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     $("#allBookingsTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",
@@ -25,7 +25,7 @@ $(document).ready(function () {
     });
     $("#pendingBookingsTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",
@@ -46,7 +46,7 @@ $(document).ready(function () {
     });
     $("#acceptedBookingsTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",
@@ -67,7 +67,7 @@ $(document).ready(function () {
     });
     $("#completedBookingsTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",
@@ -88,7 +88,7 @@ $(document).ready(function () {
     });
     $("#cancelledBookingsTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",
@@ -109,7 +109,7 @@ $(document).ready(function () {
     });
     $("#declinedBookingsTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",

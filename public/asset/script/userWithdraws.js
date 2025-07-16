@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     $("#pendingTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",
@@ -32,7 +32,7 @@ $(document).ready(function () {
     });
     $("#completedTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",
@@ -53,7 +53,7 @@ $(document).ready(function () {
     });
     $("#rejectedTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",

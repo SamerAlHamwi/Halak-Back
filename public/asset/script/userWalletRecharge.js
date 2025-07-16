@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     $("#walletRechargeTable").dataTable({
         dom: "Bfrtip",
-        buttons: ["copy", "csv", "excel", "pdf", "print"],
+        buttons: ["pdf"],
         processing: true,
         serverSide: true,
         serverMethod: "post",

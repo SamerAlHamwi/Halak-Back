@@ -146,12 +146,12 @@
                                     {{ __('Platform Earnings') }} </span></a>
                         </li>
 
-                        <li class="sideBarli  userWalletRechargeSideA">
+                        {{-- <li class="sideBarli  userWalletRechargeSideA">
                             <a href="{{ route('userWalletRecharge') }}" class="nav-link"><i
                                     class="fas fa-wallet"></i><span>
 
                                     {{ __('Recharge Logs (User)') }} </span></a>
-                        </li>
+                        </li> --}}
 
                         <li class="menu-header">{{ __('Other Data') }}</li>
 
