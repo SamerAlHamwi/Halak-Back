@@ -17,22 +17,23 @@ class CheckHeader
      */
     public function handle(Request $request, Closure $next)
     {
-        if (isset($_SERVER['HTTP_APIKEY'])) {
+        return $next($request);
+        // if (isset($_SERVER['HTTP_APIKEY'])) {
 
-            $apikey = $_SERVER['HTTP_APIKEY'];
+        //     $apikey = $_SERVER['HTTP_APIKEY'];
 
-            if ($apikey == 123) {
-                return $next($request);
-            } else {
+        //     if ($apikey == 123) {
+        //         return $next($request);
+        //     } else {
 
-                $data['status']    = false;
-                $data['message']  = "Enter Right Api key";
-                return new JsonResponse($data, 401);
-            }
-        } else {
-            $data['status']    = false;
-            $data['message']  = "Unauthorized Access";
-            return new JsonResponse($data, 401);
-        }
+        //         $data['status']    = false;
+        //         $data['message']  = "Enter Right Api key";
+        //         return new JsonResponse($data, 401);
+        //     }
+        // } else {
+        //     $data['status']    = false;
+        //     $data['message']  = "Unauthorized Access";
+        //     return new JsonResponse($data, 401);
+        // }
     }
 }
