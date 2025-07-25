@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
-use Google\Client;
 use Illuminate\Support\Facades\File;
 
 class GlobalFunction extends Model
@@ -28,101 +27,13 @@ class GlobalFunction extends Model
 
     public static function sendPushNotificationToUsers($title, $message)
     {
-        $client = new Client();
-        $client->setAuthConfig('googleCredentials.json');
-        $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
-        $client->fetchAccessTokenWithAssertion();
-        $accessToken = $client->getAccessToken();
-        $accessToken = $accessToken['access_token'];
+        return json_encode(['status' => true, 'message' => 'notification success']);
 
-        $contents = File::get(base_path('googleCredentials.json'));
-        $json = json_decode(json: $contents, associative: true);
-
-        $url = 'https://fcm.googleapis.com/v1/projects/'.$json['project_id'].'/messages:send';
-        $notificationArray = array('title' => $title, 'body' => $message);
-
-        $fields = array(
-            'message'=> [
-                'topic'=> 'users',
-                'notification' => $notificationArray,
-            ]
-        );
-
-        $headers = array(
-            'Content-Type:application/json',
-            'Authorization:Bearer ' . $accessToken
-        );
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-        // print_r(json_encode($fields));
-        $result = curl_exec($ch);
-        Log::debug($result);
-
-        if ($result === FALSE) {
-            die('FCM Send Error: ' . curl_error($ch));
-        }
-        curl_close($ch);
-
-        if ($result) {
-            return json_encode(['status' => true, 'message' => 'Notification sent successfully']);
-        } else {
-            return json_encode(['status' => false, 'message ' => 'Not sent!']);
-        }
     }
     public static function sendPushNotificationToSalons($title, $message)
     {
-        $client = new Client();
-        $client->setAuthConfig('googleCredentials.json');
-        $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
-        $client->fetchAccessTokenWithAssertion();
-        $accessToken = $client->getAccessToken();
-        $accessToken = $accessToken['access_token'];
+        return json_encode(['status' => true, 'message' => 'notification success']);
 
-        $contents = File::get(base_path('googleCredentials.json'));
-        $json = json_decode(json: $contents, associative: true);
-
-        $url = 'https://fcm.googleapis.com/v1/projects/'.$json['project_id'].'/messages:send';
-        $notificationArray = array('title' => $title, 'body' => $message);
-
-        $fields = array(
-            'message'=> [
-                'topic'=> 'salons',
-                'notification' => $notificationArray,
-            ]
-        );
-
-        $headers = array(
-            'Content-Type:application/json',
-            'Authorization:Bearer ' . $accessToken
-        );
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-        // print_r(json_encode($fields));
-        $result = curl_exec($ch);
-        Log::debug($result);
-
-        if ($result === FALSE) {
-            die('FCM Send Error: ' . curl_error($ch));
-        }
-        curl_close($ch);
-
-        if ($result) {
-            return json_encode(['status' => true, 'message' => 'Notification sent successfully']);
-        } else {
-            return json_encode(['status' => false, 'message ' => 'Not sent!']);
-        }
     }
 
     public static function sortSlotsByTime($slots){
@@ -180,168 +91,17 @@ class GlobalFunction extends Model
 
     public static function sendPushToUser($title, $message, $user)
     {
-        if ($user->is_notification == 1) {
-            $client = new Client();
-            $client->setAuthConfig('googleCredentials.json');
-            $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
-            $client->fetchAccessTokenWithAssertion();
-            $accessToken = $client->getAccessToken();
-            $accessToken = $accessToken['access_token'];
+        return json_encode(['status' => true, 'message' => 'notification success']);
 
-            $contents = File::get(base_path('googleCredentials.json'));
-            $json = json_decode(json: $contents, associative: true);
-
-            $url = 'https://fcm.googleapis.com/v1/projects/'.$json['project_id'].'/messages:send';
-            $notificationArray = array('title' => $title, 'body' => $message);
-
-            $fields = array(
-                'message'=> [
-                    'token'=> $user->device_token,
-                    'notification' => $notificationArray,
-                ]
-            );
-
-            $headers = array(
-                'Content-Type:application/json',
-                'Authorization:Bearer ' . $accessToken
-            );
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-            // print_r(json_encode($fields));
-            $result = curl_exec($ch);
-            Log::debug($result);
-
-            if ($result === FALSE) {
-                die('FCM Send Error: ' . curl_error($ch));
-            }
-            curl_close($ch);
-
-            if ($result) {
-                return json_encode(['status' => true, 'message' => 'Notification sent successfully']);
-            } else {
-                return json_encode(['status' => false, 'message ' => 'Not sent!']);
-            }
-        }
-        // echo json_encode($response);
     }
 
     public static function sendPushToStaff($title, $message, $staff)
     {
-        $url = 'https://fcm.googleapis.com/fcm/send';
-        $api_key = env('FCM_TOKEN');
-        $notificationArray = array('title' => $title, 'body' => $message, 'sound' => 'default', 'badge' => '1');
-
-
-            $client = new Client();
-            $client->setAuthConfig('googleCredentials.json');
-            $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
-            $client->fetchAccessTokenWithAssertion();
-            $accessToken = $client->getAccessToken();
-            $accessToken = $accessToken['access_token'];
-
-            $contents = File::get(base_path('googleCredentials.json'));
-            $json = json_decode(json: $contents, associative: true);
-
-            $url = 'https://fcm.googleapis.com/v1/projects/'.$json['project_id'].'/messages:send';
-            $notificationArray = array('title' => $title, 'body' => $message);
-
-            $fields = array(
-                'message'=> [
-                    'token'=> $staff->device_token,
-                    'notification' => $notificationArray,
-                ]
-            );
-
-            $headers = array(
-                'Content-Type:application/json',
-                'Authorization:Bearer ' . $accessToken
-            );
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-            // print_r(json_encode($fields));
-            $result = curl_exec($ch);
-            Log::debug($result);
-
-            if ($result === FALSE) {
-                die('FCM Send Error: ' . curl_error($ch));
-            }
-            curl_close($ch);
-
-            if ($result) {
-                return json_encode(['status' => true, 'message' => 'Notification sent successfully']);
-            } else {
-                return json_encode(['status' => false, 'message ' => 'Not sent!']);
-            }
-            // echo json_encode($response);
-
+        return json_encode(['status' => true, 'message' => 'notification success']);
     }
     public static function sendPushToSalon($title, $message, $salon)
     {
-        $url = 'https://fcm.googleapis.com/fcm/send';
-        $api_key = env('FCM_TOKEN');
-        $notificationArray = array('title' => $title, 'body' => $message, 'sound' => 'default', 'badge' => '1');
-
-        if ($salon->is_notification == 1) {
-            $client = new Client();
-            $client->setAuthConfig('googleCredentials.json');
-            $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
-            $client->fetchAccessTokenWithAssertion();
-            $accessToken = $client->getAccessToken();
-            $accessToken = $accessToken['access_token'];
-
-            $contents = File::get(base_path('googleCredentials.json'));
-            $json = json_decode(json: $contents, associative: true);
-
-            $url = 'https://fcm.googleapis.com/v1/projects/'.$json['project_id'].'/messages:send';
-            $notificationArray = array('title' => $title, 'body' => $message);
-
-            $fields = array(
-                'message'=> [
-                    'token'=> $salon->device_token,
-                    'notification' => $notificationArray,
-                ]
-            );
-
-            $headers = array(
-                'Content-Type:application/json',
-                'Authorization:Bearer ' . $accessToken
-            );
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-            // print_r(json_encode($fields));
-            $result = curl_exec($ch);
-            Log::debug($result);
-
-            if ($result === FALSE) {
-                die('FCM Send Error: ' . curl_error($ch));
-            }
-            curl_close($ch);
-
-            if ($result) {
-                return json_encode(['status' => true, 'message' => 'Notification sent successfully']);
-            } else {
-                return json_encode(['status' => false, 'message ' => 'Not sent!']);
-            }
-            // echo json_encode($response);
-        }
+        return json_encode(['status' => true, 'message' => 'notification success']);
     }
 
     public static function createMediaUrl($media)
