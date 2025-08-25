@@ -136,7 +136,7 @@ class GlobalFunction extends Model
         $url = 'https://fcm.googleapis.com/v1/projects/my-halak/messages:send';
         $fields = [
             'message' => [
-                'token' => 'ee879RVc6T8dz9YKvVlBO8X070ovsRfzV3U90n1ES642TLTlznjPNPF0jqT_NcGOE9CzkB1MOgLurukqWoF5cnF60WJ0Ly6dS3PKcGHS40',
+                'token' => 'dUM1VComSR6010HsMTDnAP:APA91bEmPgfV-ee879RVc6T8dz9YKvVlBO8X070ovsRfzV3U90n1ES642TLTlznjPNPF0jqT_NcGOE9CzkB1MOgLurukqWoF5cnF60WJ0Ly6dS3PKcGHS40',
                 'notification' => ['title' => 'Test Push', 'body' => 'Test at ' . date('Y-m-d H:i:s')]
             ]
         ];
