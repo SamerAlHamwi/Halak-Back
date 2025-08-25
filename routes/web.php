@@ -201,3 +201,24 @@ Route::get('viewTerms', [PagesController::class, 'viewTerms'])->middleware(['che
 Route::post('updateTerms', [PagesController::class, 'updateTerms'])->middleware(['checkLogin'])->name('updateTerms');
 Route::get('privacypolicy', [PagesController::class, 'privacypolicy'])->name('privacypolicy');
 Route::get('termsOfUse', [PagesController::class, 'termsOfUse'])->name('termsOfUse');
+
+
+Route::get('/check-file', function () {
+    $path = base_path('googleCredentials.json');
+    return file_exists($path) ? "File found at $path" : "File NOT found at $path";
+});
+
+use App\Models\GlobalFunction;
+use Google\Client;
+
+Route::get('/test-token', function () {
+    $client = new Client();
+    $client->setAuthConfig(base_path('googleCredentials.json'));
+    $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
+    $token = $client->fetchAccessTokenWithAssertion();
+    return dd($token); 
+});
+
+Route::get('/test-push', function () {
+    return \App\Models\GlobalFunction::testPush();
+});
