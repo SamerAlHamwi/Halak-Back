@@ -29,7 +29,8 @@ class GlobalFunction extends Model
     public static function sendPushNotificationToUsers($title, $message)
     {
         $client = new Client();
-        $client->setAuthConfig('googleCredentials.json');
+        // $client->setAuthConfig('googleCredentials.json');
+        $client->setAuthConfig(base_path('googleCredentials.json'));
         $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
         $client->fetchAccessTokenWithAssertion();
         $accessToken = $client->getAccessToken();
@@ -78,7 +79,8 @@ class GlobalFunction extends Model
     public static function sendPushNotificationToSalons($title, $message)
     {
         $client = new Client();
-        $client->setAuthConfig('googleCredentials.json');
+        // $client->setAuthConfig('googleCredentials.json');
+        $client->setAuthConfig(base_path('googleCredentials.json'));
         $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
         $client->fetchAccessTokenWithAssertion();
         $accessToken = $client->getAccessToken();
@@ -228,7 +230,8 @@ class GlobalFunction extends Model
     {
         if ($user->is_notification == 1) {
             $client = new Client();
-            $client->setAuthConfig('googleCredentials.json');
+            // $client->setAuthConfig('googleCredentials.json');
+            $client->setAuthConfig(base_path('googleCredentials.json'));
             $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
             $client->fetchAccessTokenWithAssertion();
             $accessToken = $client->getAccessToken();
@@ -285,7 +288,8 @@ class GlobalFunction extends Model
 
 
             $client = new Client();
-            $client->setAuthConfig('googleCredentials.json');
+            // $client->setAuthConfig('googleCredentials.json');
+            $client->setAuthConfig(base_path('googleCredentials.json'));
             $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
             $client->fetchAccessTokenWithAssertion();
             $accessToken = $client->getAccessToken();
@@ -341,7 +345,8 @@ class GlobalFunction extends Model
 
         if ($salon->is_notification == 1) {
             $client = new Client();
-            $client->setAuthConfig('googleCredentials.json');
+            // $client->setAuthConfig('googleCredentials.json');
+            $client->setAuthConfig(base_path('googleCredentials.json'));
             $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
             $client->fetchAccessTokenWithAssertion();
             $accessToken = $client->getAccessToken();
